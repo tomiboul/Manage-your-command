@@ -4,26 +4,162 @@
     <meta charset="UTF-8">
     <title>Personnalisation de la commande</title>
 </head>
+<link rel="stylesheet" th:href="@{/css/addDrinks.css}">
 <body>
-<p> La commande de : <span th:text="${commande.name}"></span></p>
-<p1> Description : <span th:text="${commande.description}"></span></p1>
+<div class="titre">
+    <h1> La commande de : <span th:text="${commande.name}"></span> → <span th:text="${commande.description}"></span></h1>
+</div>
 
-<form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
-    <input type="hidden" name="name" value="Coca"/>
-    <input type="hidden" name="price" value="2.50"/>
-    <input type="hidden" name="typeOfDrink" value="SOFT"/>
-    <button type="submit">Ajouter un Coca</button>
-</form>
+<div class="choiceOfDrinks" style="margin-left: 1%; margin-right: 1%">
+    <div style="background: #05b08e;">
+        <h2 style="padding-top: 10px; color: #ffffff" >Choix des softs</h2>
+        <div class="Soft">
+            <div class="drinks">
+                <h3>Coca-Cola</h3>
+                <p>SOFT • 2.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Coca"/>
+                    <input type="hidden" name="price" value="2.50"/>
+                    <input type="hidden" name="typeOfDrink" value="SOFT"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Fanta</h3>
+                <p>SOFT • 2.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Fanta"/>
+                    <input type="hidden" name="price" value="2.50"/>
+                    <input type="hidden" name="typeOfDrink" value="SOFT"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Bouteille d'eau plate</h3>
+                <p>SOFT • 6.00€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Eau plate"/>
+                    <input type="hidden" name="price" value="6.00"/>
+                    <input type="hidden" name="typeOfDrink" value="SOFT"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Bouteille d'eau pétillante</h3>
+                <p>SOFT • 6.00€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Eau pétillante"/>
+                    <input type="hidden" name="price" value="6.00"/>
+                    <input type="hidden" name="typeOfDrink" value="SOFT"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-<ul>
-    <li th:each="drink : ${commande.listDrinks}"
-        th:text="${drink.name + ' (' + drink.numberOfThisDrink + ')'}"></li>
-</ul>
+    <div style="background: #05b08e;">
+        <h2 style="padding-top: 10px; color: #ffffff" >Choix des bière</h2>
+        <div class="Beer">
+            <div class="drinks">
+                <h3>Orval en fut</h3>
+                <p>BEER • 4.00€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Orval_fut"/>
+                    <input type="hidden" name="price" value="4.00"/>
+                    <input type="hidden" name="typeOfDrink" value="BEER"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Ada</h3>
+                <p>BEER • 4.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Ada"/>
+                    <input type="hidden" name="price" value="4.50"/>
+                    <input type="hidden" name="typeOfDrink" value="BEER"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Jupiler 25cl</h3>
+                <p>BEER • 2.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Jupiler25"/>
+                    <input type="hidden" name="price" value="2.50"/>
+                    <input type="hidden" name="typeOfDrink" value="BEER"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Maes 25cl</h3>
+                <p>BEER • 2.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Maes25"/>
+                    <input type="hidden" name="price" value="2.50"/>
+                    <input type="hidden" name="typeOfDrink" value="BEER"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+            <div class="drinks">
+                <h3>Orval </h3>
+                <p>BEER • 4.50€</p>
+                <form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+                    <input type="hidden" name="name" value="Maes25"/>
+                    <input type="hidden" name="price" value="4.50"/>
+                    <input type="hidden" name="typeOfDrink" value="BEER"/>
+                    <button type="submit" >Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<ul>
-    <li th:each="meal : ${commande.listMeals}"
-        th:text="${meal.name + ' (' + meal.numberOfThisMeal + ')'}"></li>
-</ul>
+<div>
+    <h2 style="align-items: center">Les boissons commandées</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Catégorie</th>
+            <th>Quantité</th>
+            <th>Prix (€)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="drink : ${commande.listDrinks}">
+            <td th:text="${drink.name}"></td>
+            <td th:text="${drink.getType()}"></td>
+            <td th:text="${drink.numberOfThisDrink}"></td>
+            <td th:text="${drink.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Les repas commandés</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Catégorie</th>
+            <th>Végétarien</th>
+            <th>Quantité</th>
+            <th>Prix (€)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="meal : ${commande.listMeals}">
+            <td th:text="${meal.name}"></td>
+            <td th:text="${meal.typeOfMeal}"></td>
+            <td th:text="${meal.vegetarian}"></td>
+            <td th:text="${meal.numberOfThisMeal}"></td>
+            <td th:text="${meal.price}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 
 <button href="/commands">Confirmer la commande </button>
 <a href="/commands">Créer une nouvelle commande</a>
