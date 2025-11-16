@@ -15,13 +15,15 @@ public class Meal {
     private String name;
     private double price;
     private static typeOfMealEnum typeOfMeal;
+    private static boolean vegetarian;
 
     public Meal() {}
 
-    public Meal(String name, double price,  typeOfMealEnum typeOfMeal) {
+    public Meal(String name, double price,  typeOfMealEnum typeOfMeal, boolean vegetarian) {
         this.name = name;
         this.price = price;
         this.typeOfMeal = typeOfMeal;
+        this.vegetarian = vegetarian;
     }
 
     private static final String passwordsToChangePrice = "I can change my password";
@@ -54,6 +56,12 @@ public class Meal {
         else {
             System.out.println("Passwords do not match");
         }
+    }
+    public void setVegetarian(boolean vegetarian) {
+        this.vegetarian = vegetarian;
+    }
+    public boolean isVegetarian() {
+        return vegetarian;
     }
     public static typeOfMealEnum getTypeOfMeal() {
         return typeOfMeal;

@@ -1,4 +1,7 @@
 package tomiboul.projet.repositories;
 
-public class MealRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import tomiboul.projet.entity.Meal;
+
+public interface MealRepository extends JpaRepository<Meal, Long>{
 }
