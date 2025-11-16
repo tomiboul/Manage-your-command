@@ -29,7 +29,7 @@ public class Drinks {
 
 
 
-    private enum varietyOfDrinksEnum{
+    public enum varietyOfDrinksEnum{
         SOFT,
         ALCOOL,
         BEER,

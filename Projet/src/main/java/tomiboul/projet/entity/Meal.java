@@ -27,7 +27,7 @@ public class Meal {
     }
 
     private static final String passwordsToChangePrice = "I can change my password";
-    private enum typeOfMealEnum{
+    public enum typeOfMealEnum{
         STARTER,
         MAIN_COURSE,
         DESSERT
