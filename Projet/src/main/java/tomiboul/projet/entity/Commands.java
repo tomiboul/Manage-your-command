@@ -1,11 +1,8 @@
 package tomiboul.projet.entity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.ArrayList;
-
+import java.util.List;
 @Entity
 public class Commands {
 
@@ -14,8 +11,12 @@ public class Commands {
     private Long id;
     private String name;
     private String description;
-    private ArrayList<Meal> listMeals;
-    private ArrayList<Drinks> listDrinks;
+
+    @OneToMany(mappedBy = "command", cascade = CascadeType.ALL)
+    private List<Meal> listMeals = new ArrayList<>();
+
+    @OneToMany(mappedBy = "command", cascade = CascadeType.ALL)
+    private List<Drinks> listDrinks= new ArrayList<>();
 
     public  Commands() {}
 
@@ -26,7 +27,7 @@ public class Commands {
         this.listDrinks = listDrinks;
     }
 
-    private static final String passwordsToChangePrice = "I can change my password";
+    private final String passwordsToChangePrice = "I can change my password";
 
 
     public Long getId() {
@@ -44,15 +45,10 @@ public class Commands {
     public String getDescription() {
         return description;
     }
-    public void setDescription(String description, String password) {
-        if (password.equals(passwordsToChangePrice)) {
-            this.description = description;
-        }
-        else {
-            System.out.println("Passwords do not match");
-        }
+    public void setDescription(String description) {
+        this.description = description;
     }
-    public ArrayList<Meal> getListMeals() {
+    public List<Meal> getListMeals() {
         return listMeals;
     }
     public void setListMeals(ArrayList<Meal> listMeals, String password) {
@@ -62,7 +58,7 @@ public class Commands {
             System.out.println("Passwords do not match");
         }
     }
-    public ArrayList<Drinks> getListDrinks() {
+    public List<Drinks> getListDrinks() {
         return listDrinks;
     }
     public void setListDrinks(ArrayList<Drinks> listDrinks, String password) {
@@ -73,4 +69,9 @@ public class Commands {
             System.out.println("Passwords do not match");
         }
     }
+    public void addDrinks(Drinks drink) {
+        drink.setCommand(this);
+        listDrinks.add(drink);
+    }
 }
+

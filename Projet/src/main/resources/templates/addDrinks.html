@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personnalisation de la commande</title>
+</head>
+<body>
+<p> La commande de : <span th:text="${commande.name}"></span></p>
+<p1> Description : <span th:text="${commande.description}"></span></p1>
+
+<form th:action="@{'/commands/createCommand/' + ${commande.id}} "method="post">
+    <input type="hidden" name="name" value="Coca"/>
+    <input type="hidden" name="price" value="2.50"/>
+    <input type="hidden" name="typeOfDrink" value="SOFT"/>
+    <button type="submit">Ajouter un Coca</button>
+</form>
+
+<ul>
+    <li th:each="drink : ${commande.listDrinks}"
+        th:text="${drink.name + ' (' + drink.numberOfThisDrink + ')'}"></li>
+</ul>
+
+<ul>
+    <li th:each="meal : ${commande.listMeals}"
+        th:text="${meal.name + ' (' + meal.numberOfThisMeal + ')'}"></li>
+</ul>
+</body>
+</html>

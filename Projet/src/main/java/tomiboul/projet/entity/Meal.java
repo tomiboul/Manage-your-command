@@ -1,10 +1,7 @@
 package tomiboul.projet.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Meal {
@@ -14,8 +11,13 @@ public class Meal {
 
     private String name;
     private double price;
-    private static typeOfMealEnum typeOfMeal;
-    private static boolean vegetarian;
+    private typeOfMealEnum typeOfMeal;
+    private boolean vegetarian;
+    private int numberOfThisMeal;
+
+    @ManyToOne
+    @JoinColumn(name = "commands_id")
+    private Commands command;
 
     public Meal() {}
 
@@ -63,10 +65,16 @@ public class Meal {
     public boolean isVegetarian() {
         return vegetarian;
     }
-    public static typeOfMealEnum getTypeOfMeal() {
+    public typeOfMealEnum getTypeOfMeal() {
         return typeOfMeal;
     }
     public void setTypeOfMeal(typeOfMealEnum typeOfMeal) {
         this.typeOfMeal = typeOfMeal;
+    }
+    public int getNumberOfThisMeal() {
+        return numberOfThisMeal;
+    }
+    public void setNumberOfThisMeal(int numberOfThisMeal) {
+        this.numberOfThisMeal = numberOfThisMeal;
     }
 }

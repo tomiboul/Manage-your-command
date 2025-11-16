@@ -7,8 +7,9 @@ import tomiboul.projet.entity.Meal;
 @Component
 public class ProductsFactory {
 
-    public Drinks createDrink(String name, double price, Drinks.varietyOfDrinksEnum typeOfDrink) {
-        return new Drinks(name, price, typeOfDrink);
+    ProductsFactory(){}
+    public Drinks createDrink(String name, double price, Drinks.varietyOfDrinksEnum typeOfDrink, int numberOfThisDrink) {
+        return new Drinks(name, price, typeOfDrink, numberOfThisDrink);
     }
 
     public Meal createMeal(String name, double price, Meal.typeOfMealEnum typeOfMeal, boolean vegatarian) {

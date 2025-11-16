@@ -1,9 +1,9 @@
 package tomiboul.projet.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Drinks {
@@ -15,18 +15,29 @@ public class Drinks {
 
     private String name;
     private double price;
-    private static varietyOfDrinksEnum typeOfDrink;
+    private varietyOfDrinksEnum typeOfDrink;
+    private int numberOfThisDrink;
 
-    public Drinks() {}
+    @ManyToOne
+    @JoinColumn(name = "commands_id")
+    private Commands command;
 
-    public Drinks(String name, double price, varietyOfDrinksEnum typeOfDrink) {
+    public Drinks(String name, double price, varietyOfDrinksEnum typeOfDrink,  int numberOfThisDrink) {
+        assert price >= 0;
+        assert typeOfDrink != null;
+        assert numberOfThisDrink >= 0;
+
         this.name = name;
         this.price = price;
         this.typeOfDrink = typeOfDrink;
+        this.numberOfThisDrink = numberOfThisDrink;
     }
 
-    private static final String passwordsToChangePrice = "I can change my password";
+    private final String passwordsToChangePrice = "I can change my password";
 
+    public Drinks() {
+
+    }
 
 
     public enum varietyOfDrinksEnum{
@@ -66,6 +77,16 @@ public class Drinks {
     public void setType(varietyOfDrinksEnum typeOfDrink) {
         this.typeOfDrink = typeOfDrink;
     }
+    public int getNumberOfThisDrink() {
+        return numberOfThisDrink;
+    }
+    public void setNumberOfThisDrink(int numberOfThisDrink) {
+        assert numberOfThisDrink >= 0;
+        this.numberOfThisDrink = numberOfThisDrink;
+    }
 
+    public void setCommand(Commands command) {
+        this.command = command;
+    }
 
 }
