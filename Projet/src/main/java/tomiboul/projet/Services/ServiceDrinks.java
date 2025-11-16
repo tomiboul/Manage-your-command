@@ -14,20 +14,12 @@ public class ServiceDrinks {
     private DrinksRepository drinksRepository;
 
     public Drinks addDrink(String name, double price, Drinks.varietyOfDrinksEnum typeOfDrink) {
-        Optional<Drinks> optionalDrink = drinksRepository.findByName(name).filter(prices -> prices.getPrice() == price);
-        Drinks drink;
-        if (optionalDrink.isPresent()) {
-            drink = optionalDrink.get();
-            drink.setPrice(price,"I can change my password");
-            drink.setNumberOfThisDrink(drink.getNumberOfThisDrink() + 1);
-        }else {
-            drink = new Drinks();
-            drink.setName(name);
-            drink.setPrice(price,"I can change my password");
-            drink.setType(typeOfDrink);
-            drink.setNumberOfThisDrink(1);
-        }
-        //drinksRepository.save(drink);
+        Drinks drink = new Drinks();
+        drink.setName(name);
+        drink.setPrice(price, "I can change my password");
+        drink.setType(typeOfDrink);
+        drink.setNumberOfThisDrink(1);
+
         return drink;
     }
 }

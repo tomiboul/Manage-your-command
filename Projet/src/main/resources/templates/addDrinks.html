@@ -24,5 +24,9 @@
     <li th:each="meal : ${commande.listMeals}"
         th:text="${meal.name + ' (' + meal.numberOfThisMeal + ')'}"></li>
 </ul>
+
+<button href="/commands">Confirmer la commande </button>
+<a href="/commands">Créer une nouvelle commande</a>
+
 </body>
 </html>
