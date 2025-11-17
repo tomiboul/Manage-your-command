@@ -5,10 +5,77 @@
     <title>Title</title>
 </head>
 <link rel="stylesheet" th:href="@{/css/commands.css}">
-
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
 <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Manage Your Command</a>
 
-<a href="/commands/createCommand">Créer une nouvelle commande</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/commands}">Commandes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/commands/createCommand}">Créer une commande</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<h1 style="margin-top: 30px">Les commandes</h1>
+<div class="ref d-flex gap-3 mt-3" style="margin-bottom: 30px">
+    <button onclick="toggleForm()" type="button" class="btn btn-success btn-lg">Créer une commande</button>
+
+    <button type="button"
+            class="btn btn-dark btn-lg"
+            onclick="window.location.href='/'">
+        Page d'accueil
+    </button>
+</div>
+
+<div id="createForm" style="display: none; margin-top:20px;" >
+    <div class="container mt-5" style="max-width: 600px;">
+        <div class="card shadow">
+            <div class="card-body">
+
+                <div class="ref d-flex gap-3 mt-3">
+                    <h3 class="card-title mb-4">Nouvelle commande</h3>
+                    <button onclick="deleteForm()" type="button" class="btn btn-warning" style="height: 40px">Annuler</button>
+                </div>
+
+                <form action="/commands/createCommand" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Nom du client</label>
+                        <input type="text" class="form-control" name="name" value="Anonyme" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" name="description"  required>Nothing</textarea>
+                    </div>
+
+                    <button class="btn btn-success w-100" type="submit">Continuer</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 <div>
     <h2 style="align-items: center">Ensemble des commandes éffectuées</h2>
@@ -34,5 +101,21 @@
         </tbody>
     </table>
 </div>
+
+
+
+
+<script>
+    function toggleForm() {
+        const form = document.getElementById("createForm");
+        form.style.display = form.style.display === "none" ? "block" : "none";
+    }
+    function deleteForm() {
+        const form = document.getElementById("createForm");
+        form.style.display = "none";
+    }
+</script>
+
+
 </body>
 </html>

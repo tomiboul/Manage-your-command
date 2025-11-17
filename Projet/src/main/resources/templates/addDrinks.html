@@ -5,6 +5,10 @@
     <title>Personnalisation de la commande</title>
 </head>
 <link rel="stylesheet" th:href="@{/css/addDrinks.css}">
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
 <body>
 <div class="titre">
     <h1> La commande de : <span th:text="${commande.name}"></span> → <span th:text="${commande.description}"></span></h1>
@@ -21,7 +25,7 @@
                     <input type="hidden" name="name" value="Coca"/>
                     <input type="hidden" name="price" value="2.50"/>
                     <input type="hidden" name="typeOfDrink" value="SOFT"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -31,7 +35,7 @@
                     <input type="hidden" name="name" value="Fanta"/>
                     <input type="hidden" name="price" value="2.50"/>
                     <input type="hidden" name="typeOfDrink" value="SOFT"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -41,7 +45,7 @@
                     <input type="hidden" name="name" value="Eau plate"/>
                     <input type="hidden" name="price" value="6.00"/>
                     <input type="hidden" name="typeOfDrink" value="SOFT"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -51,13 +55,14 @@
                     <input type="hidden" name="name" value="Eau pétillante"/>
                     <input type="hidden" name="price" value="6.00"/>
                     <input type="hidden" name="typeOfDrink" value="SOFT"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div style="background: #05b08e;">
+
+    <div style="background: #05b08e; margin-top: 25px">
         <h2 style="padding-top: 10px; color: #ffffff" >Choix des bières</h2>
         <div class="Beer">
             <div class="drinks">
@@ -67,7 +72,7 @@
                     <input type="hidden" name="name" value="Orval_fut"/>
                     <input type="hidden" name="price" value="4.00"/>
                     <input type="hidden" name="typeOfDrink" value="BEER"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -77,7 +82,7 @@
                     <input type="hidden" name="name" value="Ada"/>
                     <input type="hidden" name="price" value="4.50"/>
                     <input type="hidden" name="typeOfDrink" value="BEER"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -87,7 +92,7 @@
                     <input type="hidden" name="name" value="Jupiler25"/>
                     <input type="hidden" name="price" value="2.50"/>
                     <input type="hidden" name="typeOfDrink" value="BEER"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -97,7 +102,7 @@
                     <input type="hidden" name="name" value="Maes25"/>
                     <input type="hidden" name="price" value="2.50"/>
                     <input type="hidden" name="typeOfDrink" value="BEER"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success">Ajouter</button>
                 </form>
             </div>
             <div class="drinks">
@@ -107,15 +112,15 @@
                     <input type="hidden" name="name" value="Maes25"/>
                     <input type="hidden" name="price" value="4.50"/>
                     <input type="hidden" name="typeOfDrink" value="BEER"/>
-                    <button type="submit" >Ajouter</button>
+                    <button type="submit" class="btn btn-success ">Ajouter</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<div>
-    <h2 style="align-items: center">Les boissons commandées</h2>
+<div style="margin-left: 20px; margin-right: 20px">
+    <h2 style="align-items: center; margin-top: 50px">Les boissons commandées</h2>
     <table>
         <thead>
         <tr>
@@ -136,7 +141,7 @@
     </table>
 </div>
 
-<div>
+<div style="margin-top: 40px; margin-left: 20px; margin-right: 20px">
     <h2>Les repas commandés</h2>
     <table>
         <thead>
@@ -161,8 +166,13 @@
 </div>
 
 
-<button href="/commands">Confirmer la commande </button>
-<a href="/commands">Créer une nouvelle commande</a>
+<div class="button" style="max-width: fit-content; margin-left: auto; margin-right: auto;justify-content: center;" >
+    <button type="button"
+            class="btn btn-success btn-lg mt-4"
+            onclick="window.location.href='/commands'">
+        Confirmer la commande
+    </button>
+</div>
 
 </body>
 </html>

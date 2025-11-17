@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <title>Our commands</title>
 </head>
+<link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous">
+<link rel="stylesheet" th:href="@{/css/index.css}">
+
 <body>
 
-<div class="createCommand", style="border: black"> Create a new command </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Manage Your Command</a>
 
-<a th:href="@{/commands}">
-    <button>Les commandes</button>
-</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/commands}">Commandes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/commands/createCommand}">Créer une commande</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="Titre">
+    <h1 class="display-4 fw-bold mb-4"
+        style="border: black;"> Bienvenue sur "Manage Your Command" </h1>
+    <p class="lead" style="margin-right: auto; margin-left: auto; max-width: fit-content;">Gérez vos commandes de boissons facilement et rapidement.</p>
+</div>
+
+<div class="image">
+    <img class="image" src="/aloha.jpg" alt="Description de l'image">
+</div>
+
+<div class="button" >
+    <button type="button" class="btn btn-dark btn-lg mt-4" onclick="window.location.href='/commands'">
+        Voir les commandes
+    </button>
+</div>
+
 
 
 </body>
