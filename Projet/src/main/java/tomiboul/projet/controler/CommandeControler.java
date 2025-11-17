@@ -10,6 +10,8 @@ import tomiboul.projet.entity.Drinks;
 import tomiboul.projet.factory.ProductsFactory;
 import tomiboul.projet.repositories.CommandsRepository;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/commands")
 public class CommandeControler {
@@ -28,7 +30,10 @@ public class CommandeControler {
 
 
     @GetMapping("")
-    public String commands() {
+    public String commands(Model model) {
+        List<Commands> commandeList = commandeRepository.findAll();
+        model.addAttribute("commandeList", commandeList);
+
         return "commands";
     }
 

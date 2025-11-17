@@ -4,11 +4,35 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<link rel="stylesheet" th:href="@{/css/commands.css}">
+
 <body>
-<div>oui</div>
 
 <a href="/commands/createCommand">Créer une nouvelle commande</a>
 
-
+<div>
+    <h2 style="align-items: center">Ensemble des commandes éffectuées</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Liste des boissons</th>
+            <th>Liste des repas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="command : ${commandeList}">
+            <td th:text="${command.name}"></td>
+            <td th:text="${command.getDescription()}"></td>
+            <td>
+                <span th:each="drink : ${command.listDrinks}"
+                      th:text="${drink.name + ' (' + drink.numberOfThisDrink + ')'} + ' '" />
+            </td>
+            <td th:text="${command.getListMeals()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
