@@ -8,12 +8,12 @@ table {
     font-size: 16px;
     font-family: "Segoe UI", Arial, sans-serif;
     min-width: 600px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px #0077B6;
 }
 
 /* En-têtes */
 thead tr {
-    background-color: #009879;
+    background-color: #0077B6;
     color: #ffffff;
     text-align: left;
     font-weight: bold;
